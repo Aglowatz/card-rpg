@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Agent",
+      "Bash",
+      "Edit",
+      "ExitPlanMode",
+      "Glob",
+      "Grep",
+      "KillShell",
+      "LSP",
+      "Monitor",
+      "NotebookEdit",
+      "PowerShell",
+      "Read",
+      "Skill",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskOutput",
+      "TaskStop",
+      "TaskUpdate",
+      "TodoWrite",
+      "ToolSearch",
+      "WebFetch",
+      "WebSearch",
+      "Write"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "env": {
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "alwaysThinkingEnabled": true,
+  "outputStyle": "default",
+  "companyAnnouncements": ["LOL!!!!"],
+  "fastMode": false,
+  "autoCompactEnabled": true,
+  "promptSuggestionEnabled": true,
+  "spinnerTipsEnabled": false,
+  "prefersReducedMotion": true,
+  "showThinkingSummaries": false,
+  "awaySummaryEnabled": false,
+  "feedbackSurveyRate": 0,
+  "fileCheckpointingEnabled": false,
+  "autoScrollEnabled": true
+}

@@ -1,0 +1,1 @@
+This project is a RPG card game made in gadot C#
