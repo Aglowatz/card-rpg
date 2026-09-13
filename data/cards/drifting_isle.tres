@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource("1")
-id = &"cloud_sentinel"
-display_name = "Cloud Sentinel"
-rules_text = "A steadfast guardian of the drifting isles."
-card_type = 0
-cost = 3
-power = 2
-toughness = 5
+id = &"drifting_isle"
+display_name = "Drifting Isle"
+rules_text = "A scrap of floating land. Adds one mana."
+card_type = 1
+cost = 0
+power = 0
+toughness = 0
 effects = []

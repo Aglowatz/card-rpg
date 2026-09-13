@@ -2,24 +2,19 @@
 ##
 ## Deliberately holds no Node references and no Texture2D references, so it
 ## can be constructed and passed around entirely inside src/core/ tests
-## with no scene tree involved.
+## with no scene tree involved. Target is Damageable rather than
+## CardInstance so a spell can hit either a creature or a combatant's face
+## through one typed interface.
 class_name EffectContext
 extends RefCounted
 
 var source: CardInstance
-var target: CardInstance
+var target: Damageable
 var resolution_log: Array[String] = []
 
-func _init(p_source: CardInstance = null, p_target: CardInstance = null) -> void:
+func _init(p_source: CardInstance = null, p_target: Damageable = null) -> void:
 	source = p_source
 	target = p_target
 
-## Effects call this instead of touching a target's stats directly, so the
-## damage math stays in one place and is easy to unit test in isolation.
-func deal_damage(recipient: CardInstance, amount: int) -> void:
-	recipient.damage_taken += amount
-	resolution_log.append("%s deals %d damage to %s" % [
-		source.data.display_name if source else "unknown",
-		amount,
-		recipient.data.display_name,
-	])
+func append_log(entry: String) -> void:
+	resolution_log.append(entry)

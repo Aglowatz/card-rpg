@@ -1,4 +1,5 @@
-## Deals a fixed amount of damage to a target CardInstance.
+## Deals a fixed amount of damage to a target Damageable (a creature or a
+## combatant's face).
 class_name DealDamage
 extends Effect
 
@@ -11,7 +12,11 @@ func resolve(ctx: EffectContext) -> void:
 	if ctx.target == null:
 		push_error("DealDamage.resolve() called with no target on context")
 		return
-	ctx.deal_damage(ctx.target, amount)
+	ctx.target.take_damage(amount)
+	ctx.append_log("%s deals %d damage" % [
+		ctx.source.data.display_name if ctx.source else "unknown",
+		amount,
+	])
 
 func describe() -> String:
 	return "Deal %d damage." % amount

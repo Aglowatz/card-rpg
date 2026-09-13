@@ -11,9 +11,16 @@
 class_name CardData
 extends Resource
 
+## CREATURE cards use power/toughness and fight on the battlefield.
+## SPELL cards use effects, resolving once against a chosen target, then go
+## to the graveyard. LAND cards use neither -- playing one just permanently
+## increases the controller's max mana.
+enum CardType { CREATURE, LAND, SPELL }
+
 @export var id: StringName = &""
 @export var display_name: String = ""
 @export_multiline var rules_text: String = ""
+@export var card_type: CardType = CardType.CREATURE
 @export var cost: int = 0
 @export var power: int = 0
 @export var toughness: int = 1
