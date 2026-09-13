@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://c25dcardbrowse1"]
+
+[ext_resource type="Script" path="res://features/inventory/card_browser.gd" id="1"]
+[ext_resource type="PackedScene" path="res://features/inventory/card.tscn" id="2"]
+
+[node name="CardBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/separation = 12
+
+[node name="FilterBar" type="HBoxContainer" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FilterLabel" type="Label" parent="VBox/FilterBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.823529, 0.243137, 1)
+text = "Collection"
+
+[node name="Split" type="HSplitContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scroll" type="ScrollContainer" parent="VBox/Split"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="ListVBox" type="VBoxContainer" parent="VBox/Split/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="DetailPanel" type="PanelContainer" parent="VBox/Split"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DetailVBox" type="VBoxContainer" parent="VBox/Split/DetailPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="DetailCard" parent="VBox/Split/DetailPanel/DetailVBox" instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ActionButton" type="Button" parent="VBox/Split/DetailPanel/DetailVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Inspect"

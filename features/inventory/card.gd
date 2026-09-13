@@ -6,6 +6,7 @@ extends PanelContainer
 
 const PANEL_COLOR := Color("2c2440")
 const ACCENT_COLOR := Color("ffd23f")
+const FOCUS_COLOR := Color("ffffff")
 
 @export var data: CardData:
 	set(value):
@@ -29,6 +30,12 @@ func _ready() -> void:
 	style.content_margin_bottom = 10
 	add_theme_stylebox_override("panel", style)
 
+	var focus_style := style.duplicate() as StyleBoxFlat
+	focus_style.border_color = FOCUS_COLOR
+	focus_style.set_border_width_all(4)
+	add_theme_stylebox_override("focus", focus_style)
+
+	focus_mode = Control.FOCUS_CLICK
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -37,7 +44,13 @@ func _ready() -> void:
 	_refresh()
 
 func _refresh() -> void:
-	if not is_node_ready() or data == null:
+	if not is_node_ready():
+		return
+	if data == null:
+		_name_label.text = ""
+		_cost_label.text = ""
+		_rules_label.text = ""
+		_stats_label.text = ""
 		return
 	_name_label.text = data.display_name
 	_cost_label.text = str(data.cost)

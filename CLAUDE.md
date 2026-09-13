@@ -29,6 +29,30 @@ feature proposal would reset player progress on failure, it does not belong in t
 JRPG systems are load-bearing, not decoration: character levels gained through experience,
 a real item and equipment economy, and dungeons that are places, not just fights.
 
+## Hard requirements — do not lose sight of these
+
+These four things define what this game is. They were established deliberately and are not up
+for casual revision. If a future proposal would remove or weaken one of them, that proposal
+contradicts the constitution — flag it, don't silently go along with it.
+
+The game world is 3D, not flat 2D UI. The overworld and dungeons are real 3D spaces with a
+character the player directly controls, not menus dressed up to look like exploration.
+
+The camera is a 2.5D isometric or angled top-down 3D camera — never first-person, never a fully
+free-roaming 3D camera. Characters, enemies, and interactive world objects are 2D billboarded
+sprites standing in the 3D space, in the style of Shandalar, Octopath Traveler, or Don't Starve —
+not 3D models. This is both an art-direction choice and a scope choice: it keeps character art
+achievable for a solo developer while still letting the world be real 3D.
+
+Touching an enemy in the 3D world launches a card battle. This is the core loop that connects
+overworld exploration to the card game itself, and it is not optional or deferrable — a version
+of this game where combat is reached only through menus is not this game.
+
+The card view is a reusable inventory and collection component — a browsable list with a detail
+preview — not a one-off hand display built for a single screen. The same component is used for
+browsing the full collection in the overworld and for navigating cards inside a battle. If a
+feature needs to show cards, it uses this component; it does not grow a second one.
+
 ## Acceptance criteria
 
 These are the conditions the finished game must satisfy. Treat each as testable, not aspirational.
@@ -122,6 +146,39 @@ deliberate art direction, and it's what lets a wholesale swap to AI-generated ar
 Until real art exists, cards render with procedural `StyleBoxFlat` panels, borders, and text. No
 external image asset is required for this to look intentional rather than broken — see the hello
 world in `features/card/` for the reference implementation.
+
+## 2.5D technical law
+
+The hard requirement above — a 3D world with billboarded 2D sprites — has load-bearing technical
+decisions behind it. These aren't per-feature choices; they're settled, and every new sprite or
+camera in the game follows them.
+
+World sprites billboard with `BILLBOARD_FIXED_Y`, never `BILLBOARD_ENABLED`. `FIXED_Y` keeps a
+character planted as a vertical standee regardless of camera pitch; the full-billboard mode tips
+the sprite backward as the camera angles down, which lifts its feet off the ground visually and
+is exactly the "looks wrong at a steep angle" problem this avoids.
+
+World sprites use `alpha_cut = ALPHA_CUT_DISCARD`, not ordinary blended transparency. This moves
+a sprite into the opaque render queue with real depth writes, which makes overlapping sprites
+sort correctly against each other and the world per-pixel, for free. Blended transparency sorts
+whole objects by origin distance and is the direct cause of the classic bug where the wrong
+billboard renders on top as the camera or characters move.
+
+Sprites are unshaded (`shaded = false`). A billboard's normal always points at the camera, so
+real-time shading on it produces a flat wash that shifts oddly as the camera moves rather than
+looking like real lighting. Mood and lighting come from `modulate` tinting and the scene's
+`WorldEnvironment`, not from shading the sprites themselves.
+
+There is one project-wide `pixel_size` constant, shared by every `Sprite3D` and
+`AnimatedSprite3D` in the game. Never set it per-sprite. Varying it is how a character ends up
+the wrong physical size relative to the world the moment its art gets swapped, which defeats the
+whole point of keeping art swappable.
+
+Placeholder world sprites — like placeholder card art — are generated procedurally, not stubbed
+with a broken or missing texture. A small registry resolves a real file at a fixed path
+convention (`assets/art/sprites/<id>.png`) first and falls back to a generated placeholder
+texture when none exists yet. This is the same swappability rule as card art, extended to
+characters and enemies in the world.
 
 ## Save law
 
