@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/core/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/core/enemy_intent.gd" id="2"]
+[ext_resource type="Script" path="res://src/core/effects/deal_damage.gd" id="3"]
+
+[sub_resource type="Resource" id="1"]
+script = ExtResource("3")
+amount = 3
+
+[sub_resource type="Resource" id="2"]
+script = ExtResource("2")
+label = "Winding up a heavy blow"
+effects = [SubResource("1")]
+
+[sub_resource type="Resource" id="3"]
+script = ExtResource("3")
+amount = 1
+
+[sub_resource type="Resource" id="4"]
+script = ExtResource("2")
+label = "A quick jab"
+effects = [SubResource("3")]
+
+[resource]
+script = ExtResource("1")
+enemy_id = &"puzzle_boss"
+display_name = "The Sleepless Loom"
+starting_life = 20
+controller_type = 1
+deck = []
+deck_strategy = 0
+scripted_sequence = []
+weighted_pool = []
+intent_sequence = [SubResource("2"), SubResource("4")]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"drifting_isle"
+display_name = "Drifting Isle"
+rules_text = "A scrap of floating land. Adds one mana."
+card_type = 1
+cost = 0
+power = 0
+toughness = 0
+effects = []

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhelloworldmain1"]
+
+[ext_resource type="Script" path="res://features/ui/main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://features/overworld/overworld.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://features/inventory/card_browser.tscn" id="3"]
+
+[node name="GameRoot" type="Node"]
+script = ExtResource("1")
+
+[node name="Overworld" parent="." instance=ExtResource("2")]
+unique_name_in_owner = true
+
+[node name="BattleHolder" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="InventoryBackground" type="ColorRect" parent="InventoryLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0784314, 0.0627451, 0.121569, 0.96)
+
+[node name="InventoryBrowser" parent="InventoryLayer" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 128
+process_mode = 3
+
+[node name="Fade" type="ColorRect" parent="TransitionLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
