@@ -34,6 +34,7 @@
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
   },
+  "model": "opusplan",
   "alwaysThinkingEnabled": true,
   "outputStyle": "default",
   "companyAnnouncements": ["LOL!!!!"],
