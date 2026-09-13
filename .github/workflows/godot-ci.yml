@@ -1,0 +1,47 @@
+name: Godot CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  GODOT_VERSION: 4.7.2
+  GODOT_DISABLE_LEAK_CHECKS: 1
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: lihop/setup-godot@v2
+        with:
+          version: ${{ env.GODOT_VERSION }}
+
+      # Populates .godot/ so class_name scripts are registered. Without
+      # this, both the type check and GUT bootstrap fail mysteriously.
+      - name: Import project
+        run: godot --headless --import --path . || true
+
+      - name: Static type check
+        run: |
+          find src features -name '*.gd' -print0 | \
+            xargs -0 -I{} godot --headless --path . --check-only --script {}
+
+      - name: Run GUT test suite
+        run: |
+          mkdir -p artifacts
+          godot --headless -d -s addons/gut/gut_cmdln.gd --path . \
+            -gdir=res://test -ginclude_subdirs \
+            -gjunit_xml_file=artifacts/gut-junit.xml -gexit
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gut-junit
+          path: artifacts/gut-junit.xml
