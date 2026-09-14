@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://src/core/enemy_data.gd" id="1"]
-[ext_resource type="Resource" path="res://data/cards/tangled_root.tres" id="2"]
-[ext_resource type="Resource" path="res://data/cards/candle_wisp.tres" id="3"]
-[ext_resource type="Resource" path="res://data/cards/bramble_lash.tres" id="4"]
-[ext_resource type="Resource" path="res://data/cards/mossy_bank.tres" id="5"]
-[ext_resource type="Resource" path="res://data/cards/emberwick_bolt.tres" id="6"]
+[ext_resource type="Resource" path="res://data/cards/isle_magician.tres" id="2"]
+[ext_resource type="Resource" path="res://data/cards/mossy_bank.tres" id="3"]
+[ext_resource type="Resource" path="res://data/cards/sunken_stair.tres" id="4"]
 
 [resource]
 script = ExtResource("1")
@@ -13,7 +11,7 @@ enemy_id = &"slime_enemy"
 display_name = "Forest Slime"
 starting_life = 10
 controller_type = 0
-deck = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6")]
+deck = [ExtResource("2"), ExtResource("2"), ExtResource("3"), ExtResource("3"), ExtResource("4")]
 deck_strategy = 0
 scripted_sequence = []
 weighted_pool = []

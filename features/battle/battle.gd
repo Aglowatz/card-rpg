@@ -13,15 +13,15 @@ signal battle_finished(result: BattleResult)
 const STARTER_DECK_PATHS: Array[String] = [
 	"res://data/cards/mossy_bank.tres",
 	"res://data/cards/mossy_bank.tres",
+	"res://data/cards/mossy_bank.tres",
+	"res://data/cards/sunken_stair.tres",
 	"res://data/cards/sunken_stair.tres",
 	"res://data/cards/spellbound_swordsman.tres",
+	"res://data/cards/spellbound_swordsman.tres",
 	"res://data/cards/isle_magician.tres",
-	"res://data/cards/tangled_root.tres",
-	"res://data/cards/candle_wisp.tres",
-	"res://data/cards/emberwick_bolt.tres",
-	"res://data/cards/bramble_lash.tres",
+	"res://data/cards/isle_magician.tres",
 	"res://data/cards/arc_conjurer.tres",
-	"res://data/cards/spike_crawler.tres",
+	"res://data/cards/veteran_blade.tres",
 	"res://data/cards/cloud_sentinel.tres",
 ]
 

@@ -1,6 +1,7 @@
-## Renders a single CardData. All visuals are procedural StyleBoxFlat /
-## Label nodes — no image assets. Presentation only; no game logic lives
-## here beyond forwarding input to the EventBus.
+## Renders a single CardData: a dark panel, a decorative frame border
+## cropped from the card-rpg asset pack, the card's art, and its text.
+## Presentation only; no game logic lives here beyond forwarding input to
+## the EventBus.
 class_name Card
 extends PanelContainer
 

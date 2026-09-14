@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://src/core/enemy_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/core/enemy_intent.gd" id="2"]
 [ext_resource type="Script" path="res://src/core/effects/deal_damage.gd" id="3"]
-[ext_resource type="Resource" path="res://data/cards/stone_watcher.tres" id="4"]
+[ext_resource type="Resource" path="res://data/cards/veteran_blade.tres" id="4"]
 
 [sub_resource type="Resource" id="1"]
 script = ExtResource("2")
-label = "Summoning a stone watcher"
+label = "Summoning a veteran blade"
 effects = []
 summon = ExtResource("4")
 

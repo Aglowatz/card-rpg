@@ -15,28 +15,14 @@ const MAX_PLAYER_LIFE := 20
 ## playable card in the demo pool.
 const ALL_CARD_PATHS: Array[String] = [
 	"res://data/cards/arc_conjurer.tres",
-	"res://data/cards/arcane_surge.tres",
-	"res://data/cards/bramble_lash.tres",
-	"res://data/cards/candle_wisp.tres",
-	"res://data/cards/catacomb_flare.tres",
 	"res://data/cards/cloud_sentinel.tres",
-	"res://data/cards/crumbling_wall.tres",
-	"res://data/cards/dandelion_echo.tres",
 	"res://data/cards/dandelion_gust.tres",
 	"res://data/cards/drifting_isle.tres",
-	"res://data/cards/emberwick_bolt.tres",
 	"res://data/cards/isle_magician.tres",
 	"res://data/cards/mossy_bank.tres",
-	"res://data/cards/rampart_guardian.tres",
 	"res://data/cards/spark_wisp.tres",
 	"res://data/cards/spellbound_swordsman.tres",
-	"res://data/cards/spike_crawler.tres",
-	"res://data/cards/spiked_pit.tres",
-	"res://data/cards/stone_watcher.tres",
 	"res://data/cards/sunken_stair.tres",
-	"res://data/cards/sworn_strike.tres",
-	"res://data/cards/tangled_root.tres",
-	"res://data/cards/thorned_bramble.tres",
 	"res://data/cards/veteran_blade.tres",
 ]
 
