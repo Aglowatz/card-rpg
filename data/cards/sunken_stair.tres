@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/card-rpg/bg_3.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"sunken_stair"
+display_name = "Sunken Stair"
+rules_text = "Steps that lead further down than they should. Adds one mana."
+card_type = 1
+cost = 0
+power = 0
+toughness = 0
+effects = []
+art = ExtResource("2")

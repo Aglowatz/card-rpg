@@ -38,3 +38,8 @@ mono_crash.*.json
 # Test artifacts
 /artifacts/
 .gutconfig.json.bak
+
+# Source-tool archives kept on disk for reference/provenance but not
+# usable by Godot -- see the sibling source.txt/public-license.txt next
+# to each asset pack for where the art actually came from.
+*.unitypackage

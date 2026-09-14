@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/veteran_blade.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"veteran_blade"
+display_name = "Veteran Blade"
+rules_text = "Has fought on more islands than most can name."
+card_type = 0
+cost = 4
+power = 4
+toughness = 4
+effects = []
+art = ExtResource("2")

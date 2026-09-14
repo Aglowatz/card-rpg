@@ -25,6 +25,11 @@ enum CardType { CREATURE, LAND, SPELL }
 @export var power: int = 0
 @export var toughness: int = 1
 @export var effects: Array[Effect] = []
+## Set directly per-card in its .tres -- several cards may share one
+## underlying image where thematically apt. Null is fine; Card renders
+## without an art panel until one is set, per the art law's placeholder
+## rule.
+@export var art: Texture2D = null
 
 func _init() -> void:
 	pass
