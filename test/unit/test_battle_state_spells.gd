@@ -64,4 +64,5 @@ func test_cannot_play_spell_without_enough_mana() -> void:
 	a.hand.append(bolt)
 
 	assert_false(battle.play_card(a, bolt))
+	assert_push_error("not enough mana")
 	assert_true(a.hand.has(bolt), "an illegal play should not remove the card from hand")

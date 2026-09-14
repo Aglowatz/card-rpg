@@ -98,4 +98,5 @@ func test_play_land_is_limited_to_one_per_turn() -> void:
 
 	assert_true(battle.play_land(a, first_land))
 	assert_false(battle.play_land(a, second_land))
+	assert_push_error("already played a land this turn")
 	assert_eq(a.max_mana, 1)
