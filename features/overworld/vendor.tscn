@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c25dvendor0001"]
+
+[ext_resource type="Script" path="res://features/overworld/vendor.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="1"]
+radius = 1.2
+
+[node name="Vendor" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="InteractShape" type="CollisionShape3D" parent="InteractArea"]
+shape = SubResource("1")

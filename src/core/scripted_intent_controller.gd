@@ -19,6 +19,12 @@ func take_turn(battle: BattleState, combatant: Combatant) -> void:
 	var intent := enemy_data.intent_sequence[_intent_index]
 	_intent_index = (_intent_index + 1) % enemy_data.intent_sequence.size()
 
+	if intent.summon != null:
+		var creature := CardInstance.new(intent.summon)
+		creature.summoning_sick = true
+		combatant.battlefield.append(creature)
+		return
+
 	var target: Damageable = battle.opponent_of(combatant)
 	var ctx := EffectContext.new(null, target)
 	for effect in intent.effects:

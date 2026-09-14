@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/candle_wisp.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"candle_wisp"
+display_name = "Candle Wisp"
+rules_text = "A dungeon flame that wandered off and liked it out here."
+card_type = 0
+cost = 1
+power = 1
+toughness = 1
+effects = []
+art = ExtResource("2")

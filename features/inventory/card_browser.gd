@@ -23,6 +23,7 @@ signal card_chosen(card: CardData)
 @onready var _scroll: ScrollContainer = %Scroll
 @onready var _detail_card: Card = %DetailCard
 @onready var _filter_bar: Control = %FilterBar
+@onready var _filter_label: Label = %FilterLabel
 @onready var _action_button: Button = %ActionButton
 
 var _rows: Array[Card] = []
@@ -57,6 +58,10 @@ func populate(cards: Array[CardData]) -> void:
 func focus_first() -> void:
 	if not _rows.is_empty():
 		_rows[0].grab_focus.call_deferred()
+
+## Inbound API: relabel the header, e.g. "Card Vendor" vs "Collection".
+func set_title(text: String) -> void:
+	_filter_label.text = text
 
 func _link_focus_chain() -> void:
 	for i in _rows.size():

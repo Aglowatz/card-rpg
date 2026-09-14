@@ -18,7 +18,7 @@ func test_player_overlapping_enemy_triggers_a_battle() -> void:
 	await get_tree().process_frame
 
 	var player: Player = root.get_node("Overworld/Player")
-	var enemy: Enemy = root.get_node("Overworld/Enemy")
+	var enemy: Enemy = root.get_node("Overworld/ForestEnemy")
 
 	player.global_position = enemy.global_position
 	await _wait_for_battle_transition(self)
@@ -31,7 +31,7 @@ func test_walking_toward_the_enemy_triggers_a_battle() -> void:
 	await get_tree().process_frame
 
 	var player: Player = root.get_node("Overworld/Player")
-	var enemy: Enemy = root.get_node("Overworld/Enemy")
+	var enemy: Enemy = root.get_node("Overworld/ForestEnemy")
 	var camera_rig: CameraRig = root.get_node("Overworld/CameraRig")
 
 	# Start the player a short walk away from the enemy, directly behind

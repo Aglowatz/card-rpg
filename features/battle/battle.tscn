@@ -32,6 +32,14 @@ theme_override_colors/font_color = Color(1, 0.823529, 0.243137, 1)
 text = "Battle"
 horizontal_alignment = 1
 
+[node name="StatusLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.85, 0.85, 0.9, 1)
+text = "Player: 20 life        Enemy: 20 life"
+horizontal_alignment = 1
+
 [node name="CardBrowser" parent="VBox" instance=ExtResource("2")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -42,15 +50,10 @@ layout_mode = 2
 alignment = 1
 theme_override_constants/separation = 20
 
-[node name="WinButton" type="Button" parent="VBox/ButtonRow"]
+[node name="EndTurnButton" type="Button" parent="VBox/ButtonRow"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Win"
-
-[node name="LoseButton" type="Button" parent="VBox/ButtonRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Lose"
+text = "End Turn"
 
 [node name="FleeButton" type="Button" parent="VBox/ButtonRow"]
 unique_name_in_owner = true

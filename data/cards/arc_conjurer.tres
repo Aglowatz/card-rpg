@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/arc_conjurer.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"arc_conjurer"
+display_name = "Arc Conjurer"
+rules_text = "Channels a little too much power for comfort."
+card_type = 0
+cost = 3
+power = 2
+toughness = 3
+effects = []
+art = ExtResource("2")

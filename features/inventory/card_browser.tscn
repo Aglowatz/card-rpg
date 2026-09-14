@@ -22,6 +22,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="FilterLabel" type="Label" parent="VBox/FilterBar"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(1, 0.823529, 0.243137, 1)

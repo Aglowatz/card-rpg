@@ -15,6 +15,7 @@ const FOCUS_COLOR := Color("ffffff")
 
 @onready var _name_label: Label = %NameLabel
 @onready var _cost_label: Label = %CostLabel
+@onready var _art_rect: TextureRect = %ArtRect
 @onready var _rules_label: Label = %RulesLabel
 @onready var _stats_label: Label = %StatsLabel
 
@@ -51,11 +52,15 @@ func _refresh() -> void:
 		_cost_label.text = ""
 		_rules_label.text = ""
 		_stats_label.text = ""
+		_art_rect.texture = null
+		_art_rect.visible = false
 		return
 	_name_label.text = data.display_name
 	_cost_label.text = str(data.cost)
 	_rules_label.text = data.rules_text
 	_stats_label.text = "%d / %d" % [data.power, data.toughness]
+	_art_rect.texture = data.art
+	_art_rect.visible = data.art != null
 
 func _on_mouse_entered() -> void:
 	if data:

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/rampart_guardian.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = &"rampart_guardian"
+display_name = "Rampart Guardian"
+rules_text = "The wall it once was, now standing on its own."
+card_type = 0
+cost = 4
+power = 2
+toughness = 6
+effects = []
+art = ExtResource("2")

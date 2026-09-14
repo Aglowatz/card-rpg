@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/card_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/art/cards/catacomb_flare.png" id="2"]
+[ext_resource type="Script" path="res://src/core/effects/deal_damage.gd" id="3"]
+
+[sub_resource type="Resource" id="1"]
+script = ExtResource("3")
+amount = 4
+
+[resource]
+script = ExtResource("1")
+id = &"catacomb_flare"
+display_name = "Catacomb Flare"
+rules_text = "Deal 4 damage."
+card_type = 2
+cost = 2
+power = 0
+toughness = 0
+effects = [SubResource("1")]
+art = ExtResource("2")
